@@ -1,4 +1,4 @@
-#include "alx.h"
+#include "main.h"
 
 /**
  * print_last_digit - func to prints and return the last digit of a number
