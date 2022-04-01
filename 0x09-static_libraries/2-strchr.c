@@ -10,4 +10,3 @@ char *_strchr(char *s, char c)
 {
 return(s);
 }
-© 2022 Gi
