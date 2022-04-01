@@ -1,12 +1,15 @@
 #include "main.h"
+
 /**
- * _atoi-func to convert str to int
- * @s: pointer to be supplied
- * Return: Always 0
+ * _atoi - tbd
+ *
+ * @s: parameter defined in main, pointer to memory
+ *
+ * Return: 0 for now
  */
 
 int _atoi(char *s)
 {
-return (0);
-
+	s = s + 1;
+	return (0);
 }
