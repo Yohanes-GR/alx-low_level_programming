@@ -2,31 +2,38 @@
 #include <stdio.h>
 
 /**
- * _strspn - returns number of bytes in the initial sengment s
- * @s: for the count action
- * @accept: parameter for char
- * Return: number of bytes;
+ * _strspn - function that gets the length of a prefix substring
+ *
+ * @s: parameter defined in main, pointer to memory (string)
+ * @accept: parameter defined in main, characters to be compared with s string
+ *
+ * Return: integer, number of bytes common to the two strings
  */
 
 unsigned int _strspn(char *s, char *accept)
 {
-unsigned int num;
-int i, j, t;
+	int size = 0;
+	unsigned int bytes = 0;
+	char *tmp = accept;
+	int i;
 
-i = 0;
-while (s[i] != '\0')
-{
-t = 0;
-for (j = 0; accept[j] != '\0'; j++)
-{
-if (s[i] == accept[j])
-t = 1;
-}
-j = 0;
-if (t == 0)
-break;
-num++;
-i++;
-}
-return (i);
+	while (*accept++)
+		size++;
+	accept = tmp;
+
+	while (*s)
+	{
+		accept = tmp;
+		i = 0;
+		while (accept < tmp + size)
+		{
+			if (*s == *accept)
+				bytes++, i++;
+			accept++;
+		}
+		if (i == 0)
+			break;
+		s++;
+	}
+	return (bytes);
 }
