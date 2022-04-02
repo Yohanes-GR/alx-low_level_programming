@@ -1,20 +1,49 @@
-#include "main.h"
+#include "holberton.h"
+#include <stdio.h>
+
 /**
- * _strncpy - copies a string
- * @dest: destination.
- * @src: source.
- * @n: amount of bytes from src.
- * Return: the pointer to dest.
+ * _strncpy - function that concatenates two strings
+ *
+ * @dest: parameter defined in main
+ * @src: parameter defined in main
+ * @n: parameter defined in main
+ *
+ * Return: memory address of function (string)
  */
 
 char *_strncpy(char *dest, char *src, int n)
 {
-int i;
 
-for (i = 0; i < n && src[i] != '\0'; i++)
-dest[i] = src[i];
-for ( ; i < n; i++)
-dest[i] = '\0';
+	char *tmp1 = dest;
+	char *tmp2 = src;
 
-return (dest);
+	while (src < tmp2 + n && *src != '\0')
+	{
+		*dest = *src;
+		src++;
+		dest++;
+	}
+	while (src < tmp2 + n)
+	{
+		*dest = '\0';
+		dest++;
+		src++;
+	}
+	dest = tmp1;
+	src = tmp2;
+
+/*
+ *	int i;
+ *	char *tmp = dest;
+ *
+ *	for (i = 0; i < n && *src != '\0'; i++)
+ *		*dest++ = *src++;
+ *
+ *	for ( ; i < n; i++)
+ *		*dest++ = '\0';
+ *
+ *	dest = tmp;
+ */
+
+	return (dest);
 }
