@@ -1,30 +1,39 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _strpbrk - locates the first occurrence in the string s of any
- * of the bytes in the string accept
- * @s: for the char
- * @accept: paramter for accept
- * Return: pointer to the byte s
+ * _strpbrk - function that searches a string for any of a set of bytes
+ *
+ * @s: parameter defined in main, pointer to memory (string)
+ * @accept: parameter defined in main, characters to be compared with s string
+ *
+ * Return: integer, pointer to the first byte common to the two strings
  */
 
 char *_strpbrk(char *s, char *accept)
 {
-int i, t, j;
+	int size = 0;
+	char *ptr = s;
+	char *tmp = accept;
+	int i;
 
-i = 0;
-while (s[i] != '\0')
-{
-t = 0;
-for (j = 0; accept[j] != '\0'; j++)
-{
-if (s[i] == accept[j])
-t = 1;
-}
-j = 0;
-if (t == 1)
-return (s + i);
-i++;
-}
-return (0);
+	while (*accept++)
+		size++;
+	accept = tmp;
+
+	while (*s)
+	{
+		accept = tmp;
+		i = 0;
+		while (accept < tmp + size)
+		{
+			if (*s == *accept)
+				ptr = s, i++;
+			accept++;
+		}
+		if (i == 1)
+			return (ptr);
+		s++;
+	}
+	return (NULL);
 }
