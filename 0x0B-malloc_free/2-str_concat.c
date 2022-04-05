@@ -1,4 +1,4 @@
-#include "main.h"
+#include "notrebloh.h"
 #include <stdlib.h>
 #include <stdio.h>
 /**
@@ -58,11 +58,11 @@ char *str_concat(char *s1, char *s2)
 
 	ptr = malloc(((size1 + size2) + 1) * sizeof(char));
 	if (ptr == NULL)
-OAOAOA	{
-OAOAOA		return (NULL);
-OAOAOA	}
+	{
+		return (NULL);
+	}
 	_strncat(ptr, s1, size1);
-OAOAOA	_strncat(ptr, s2, size2);
-OAOAOA	ptr += '\0';
+	_strncat(ptr, s2, size2);
+	ptr += '\0';
 	return (ptr);
-OAOAOA}
+}
