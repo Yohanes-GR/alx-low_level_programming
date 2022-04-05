@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
@@ -7,17 +8,43 @@
  * @argc: Number of command line arguments
  * @argv: Array name
  * Return: 1 if not enough arguments passed in, 0 otherwise
+=======
+#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * main - program that multiplies two numbers
+ *
+ * @argc: argument count for main
+ * @argv: vector to the arguments
+ *
+ * Return: void
+>>>>>>> f52dc054f46ecc6b28e8f359f55496448369599b
  */
 
 int main(int argc, char *argv[])
 {
+<<<<<<< HEAD
 	int i, j;
 
 	if (argc == 1 || argc == 2)
+=======
+	int mul = 0;
+
+	if (argc == 3)
+	{
+		mul = atoi(argv[1]) * atoi(argv[2]);
+		printf("%d\n", mul);
+		return (0);
+	}
+	else
+>>>>>>> f52dc054f46ecc6b28e8f359f55496448369599b
 	{
 		printf("Error\n");
 		return (1);
 	}
+<<<<<<< HEAD
 	else
 	{
 		j = 1;
@@ -29,4 +56,6 @@ int main(int argc, char *argv[])
 	}
 
 	return (0);
+=======
+>>>>>>> f52dc054f46ecc6b28e8f359f55496448369599b
 }
