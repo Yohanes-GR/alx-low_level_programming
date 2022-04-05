@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 #ifndef MAIN_H
 #define MAIN_H
-=======
-#ifndef _MAIN_H_
-#define _MAIN_H_
->>>>>>> f52dc054f46ecc6b28e8f359f55496448369599b
 
 int _putchar(char c);
 int _islower(int c);
