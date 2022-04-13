@@ -1,26 +1,36 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "3-calc.h"
 
 /**
- * main - main file
- * @argc: number of lines arguments
- * @argv: array of elements
- * Return: 0
+ * main - entry point
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: the job has been finished
  */
 
 int main(int argc, char *argv[])
 {
-	int R;
+	int v;
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-
-	R = (*get_op_func(argv[2]))(atoi(argv[1]), atoi(argv[3]));
-	printf("%d\n", R);
-
+	if ((argv[2][1] != 0) || ((argv[2][0] != '+') &&  (argv[2][0] != '-')
+		&& (argv[2][0] != '*') && (argv[2][0] != '/') && (argv[2][0] != '%')))
+	{
+		printf("Error\n");
+		exit(99);
+	}
+	if ((argv[2][0] == '/' || (argv[2][0] == '%')) && atoi(argv[3]) == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	v = get_op_func(argv[2]) (atoi(argv[1]), atoi(argv[3]));
+			printf("%d\n", v);
 	return (0);
 }
