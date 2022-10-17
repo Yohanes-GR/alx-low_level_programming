@@ -1,56 +1,55 @@
 #include "search_algos.h"
 
-void print_array(int *array, size_t i, size_t size);
-
 /**
- * binary_search - binary search algorithm in a string
- * @array: list of elements
- * @size: size of the list
- * @value: target to search
- * Return: element index on success (-1) on fail
+ * print_array - prints an array of integers
+ * @array: array to print
+ * @size: size of array
+ *
+ * return: void
  */
-int binary_search(int *array, size_t size, int value)
+void print_array(int *array, size_t size)
 {
-	size_t low = 0, high = size - 1, half = 0;
+	size_t i;
 
-	if (array == NULL || value == 0)
-		return (-1);
-
-	print_array(array, low, size);
-	while (low < high)
+	printf("Searching in array:");
+	for (i = 0; i < size; i++)
 	{
-		half = (low + high) / 2;
-		if (array[half] < value)
-		{
-			low = half + 1;
-			print_array(array, low, high + 1);
-		}
-		else if (array[half] > value)
-		{
-			high = half - 1;
-			print_array(array, low, high + 1);
-		}
-		else
-			return (array[half]);
+		printf(" %d", array[i]);
+		if (i != size - 1)
+			printf(",");
 	}
-	return (-1);
+	printf("\n");
 }
 
 /**
- * print_array - print all elements in an array
- * @array: list of elements
- * @i: index to init
- * @size: size of the array
+ * binary_search - searches for a value in a sorted array of integers using the
+ * Binary search algorithm
+ * @array: pointer to the first element of the array to search in
+ * @size: number of elements in array
+ * @value: value to search for
+ *
+ * Return: index where value is located, or -1 on failure
  */
-void print_array(int *array, size_t i, size_t size)
+int binary_search(int *array, size_t size, int value)
 {
-	printf("Searching in array: ");
-	while (i < size)
+	size_t l, m, r;
+
+	if (array != NULL && size > 0)
 	{
-		if (i + 1 == size)
-			printf("%d ", array[i]);
-		else
-			printf("%d, ", array[i]);
-		i++;
-	} printf("\n");
+		l = 0;
+		r = size - 1;
+		print_array(array + l, r + 1 - l);
+		while (l < r)
+		{
+			m = (l + r) / 2;
+			if (array[m] < value)
+				l = m + 1;
+			else if (array[m] > value)
+				r = m;
+			else
+				return (m);
+			print_array(array + l, r + 1 - l);
+		}
+	}
+	return (-1);
 }
